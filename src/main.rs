@@ -25,11 +25,11 @@ async fn main() {
         .route("/health", get(health_check))
         .with_state(app_state);
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3002")
         .await
         .unwrap();
 
-    println!("Server running on http://localhost:3000");
+    println!("Server running on http://localhost:3002");
 
     axum::serve(listener, app).await.unwrap();
 }
